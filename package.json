@@ -1,0 +1,75 @@
+{
+  "name": "@agenticros/navigate-through-poses",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "External ROS-node skill: Nav2 NavigateThroughPoses waypoint chains.",
+  "keywords": ["agenticros", "nav2", "navigation", "waypoints", "ros2"],
+  "homepage": "https://github.com/agenticros/agenticros-skill-navigate-through-poses#readme",
+  "bugs": {
+    "url": "https://github.com/agenticros/agenticros-skill-navigate-through-poses/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agenticros/agenticros-skill-navigate-through-poses.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "agenticros": {
+    "id": "navigate-through-poses",
+    "displayName": "Navigate Through Poses",
+    "description": "Send a Nav2 NavigateThroughPoses goal (waypoint chain / patrol). Requires Nav2 running on the robot; AgenticROS dispatches the action over the configured transport.",
+    "categories": ["navigation"],
+    "capabilities": [
+      {
+        "id": "navigate_through_poses",
+        "verb": "navigate",
+        "description": "Navigate the robot base through a sequence of map poses via Nav2.",
+        "inputs": {
+          "poses": {
+            "type": "array",
+            "description": "Ordered waypoints: [{x, y, yaw?, frame_id?}]. Or pass an explicit goal object."
+          },
+          "frame_id": {
+            "type": "string",
+            "description": "Default pose frame_id (default map).",
+            "optional": true
+          },
+          "goal": {
+            "type": "object",
+            "description": "Explicit NavigateThroughPoses goal (overrides poses helper).",
+            "optional": true
+          }
+        },
+        "outputs": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the action reported success."
+          }
+        },
+        "interruptible": true,
+        "blocks_base": true,
+        "implementation": {
+          "kind": "external_ros_node",
+          "package": "nav2_bringup",
+          "launch": "navigation_launch.py",
+          "action": "navigate_through_poses",
+          "msg_type": "nav2_msgs/action/NavigateThroughPoses"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^5.7.0"
+  },
+  "author": "AgenticROS",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
