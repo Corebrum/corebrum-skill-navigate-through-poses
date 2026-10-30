@@ -1,16 +1,16 @@
 {
-  "name": "@agenticros/navigate-through-poses",
+  "name": "@corebrum/navigate-through-poses",
   "version": "0.1.0",
   "type": "module",
   "description": "External ROS-node skill: Nav2 NavigateThroughPoses waypoint chains.",
-  "keywords": ["agenticros", "nav2", "navigation", "waypoints", "ros2"],
-  "homepage": "https://github.com/agenticros/agenticros-skill-navigate-through-poses#readme",
+  "keywords": ["synapse", "nav2", "navigation", "waypoints", "ros2"],
+  "homepage": "https://github.com/Corebrum/corebrum-skill-navigate-through-poses#readme",
   "bugs": {
-    "url": "https://github.com/agenticros/agenticros-skill-navigate-through-poses/issues"
+    "url": "https://github.com/Corebrum/corebrum-skill-navigate-through-poses/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agenticros/agenticros-skill-navigate-through-poses.git"
+    "url": "git+https://github.com/Corebrum/corebrum-skill-navigate-through-poses.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,10 +19,10 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
-  "agenticros": {
+  "synapse": {
     "id": "navigate-through-poses",
     "displayName": "Navigate Through Poses",
-    "description": "Send a Nav2 NavigateThroughPoses goal (waypoint chain / patrol). Requires Nav2 running on the robot; AgenticROS dispatches the action over the configured transport.",
+    "description": "Send a Nav2 NavigateThroughPoses goal (waypoint chain / patrol). Requires Nav2 running on the robot; Corebrum Synapse dispatches the action over the configured transport.",
     "categories": ["navigation"],
     "capabilities": [
       {
@@ -67,7 +67,7 @@
     "@types/node": "^20.17.0",
     "typescript": "^5.7.0"
   },
-  "author": "AgenticROS",
+  "author": "Corebrum Synapse",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

@@ -1,14 +1,17 @@
 # Navigate Through Poses — Nav2 waypoint skill
 
+This project was previously known as AgenticROS.
+
+
 Marketplace package for the `navigate_through_poses` capability (`external_ros_node` → Nav2 `NavigateThroughPoses`).
 
 ```bash
-npx agenticros skills install @agenticros/navigate-through-poses
+npx @corebrum/synapse skills install @corebrum/navigate-through-poses
 # or marketplace ref: chrismatthieu/navigate-through-poses
 # or: "skillRefs": ["chrismatthieu/navigate-through-poses"]
 ```
 
-AgenticROS does **not** launch Nav2. Bring up Nav2 on the robot (or sim), then install this skill. The CLI auto-restarts the OpenClaw gateway unless you pass `--no-restart`.
+Corebrum Synapse does **not** launch Nav2. Bring up Nav2 on the robot (or sim), then install this skill. The CLI auto-restarts the OpenClaw gateway unless you pass `--no-restart`.
 
 ## Mission example
 
@@ -40,4 +43,4 @@ Or pass an explicit Nav2 goal: `{ "goal": { "poses": [ ... ] } }`.
 
 - Nav2 advertising `navigate_through_poses` (namespaced under the robot namespace when applicable)
 - Transport that supports actions (local DDS, rosbridge, or WebRTC)
-- `@agenticros/core` ≥ 0.8.1 for the `poses[]` → goal helper (explicit `goal` works on older cores)
+- `@corebrum/core` ≥ 0.8.1 for the `poses[]` → goal helper (explicit `goal` works on older cores)
